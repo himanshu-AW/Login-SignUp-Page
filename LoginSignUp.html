@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="LoginSignUp.css">
+</head>
+<body>
+    <div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+        
+        <div class="signup">
+            <form>
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <input type="text" name="FullName" placeholder="User name" required="">
+                <input type="email" name="Email" placeholder="Email" required="">
+                <input type="password" name="Password" placeholder="Password" required="">
+                <span><input type="checkbox" id="checkbox" aria-hidden="true">Remind Me</span>
+                <button type="submit" name="submit">Sign up</button>
+            </form>
+        </div>
+        
+        <div class="login">
+            <form>
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="email" name="Email" placeholder="Email" required="">
+                <input type="password" name="Password" placeholder="Password" required="">
+                <span><input type="checkbox" id="checkbox" aria-hidden="true">Remind Me</span>
+				<button type="submit" name="submit">Login</button>
+			</form>
+		</div>
+	</div>
+    <!-- =========== google api  ============ -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzKTXE18orX1-BMyyQygV75lOH6-O66bZGKkGWVe06fX9JU6SPZgMylVYe0nKFUKgIJJA/exec';
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
+</html>
